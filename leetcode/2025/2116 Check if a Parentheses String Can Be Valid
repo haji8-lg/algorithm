@@ -1,0 +1,39 @@
+class Solution:
+    def canBeValid(self, s: str, locked: str) -> bool:
+        if len(s) % 2 != 0:
+            return False
+        if s[len(s)-1] == "(" and locked[len(s)-1] =="1":
+            return False
+        if s[0] == ")" and locked[0] =="1":
+            return False
+
+        stack = []
+        unlock_stack = []
+        pairs = {')': '('}
+        i = 0
+        for char in list(s):
+            if locked[i] == '0':
+                unlock_stack.append(i)
+            elif s[i] == '(':
+                stack.append(i)
+            elif s[i] == ')':
+                if stack:
+                    stack.pop()
+                elif unlock_stack:
+                    unlock_stack.pop()
+                else:
+                    return False
+            i = i + 1
+
+        while stack and unlock_stack and stack[-1] < unlock_stack[-1]:
+            stack.pop()
+            unlock_stack.pop()
+        while len(unlock_stack) % 2 == 0 and unlock_stack != []  :
+            unlock_stack.pop()
+            unlock_stack.pop()
+
+        print("fin") 
+        print("stack", stack)
+        print("unlock_stack", unlock_stack)
+
+        return stack == [] and unlock_stack ==[]
