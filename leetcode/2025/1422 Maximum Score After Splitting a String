@@ -1,0 +1,17 @@
+class Solution:
+    def maxScore(self, s: str) -> int:
+        def count(strNumber, number):
+            return strNumber.count(number)
+
+        maxCnt = 0
+        
+        for val in range(len(s)):
+            if val ==0:
+                continue
+            left = s[0: val]
+            right = s[val:]
+            leftCnt = count(left, "0")
+            rightCnt = count(right, "1")
+            maxCnt = max(maxCnt, leftCnt + rightCnt)
+
+        return maxCnt
