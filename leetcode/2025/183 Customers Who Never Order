@@ -1,0 +1,6 @@
+# Write your MySQL query statement below
+
+select c.name as Customers
+FROM customers c
+LEFT OUTER JOIN orders o on o.customerId = c.id
+where o.id is null
