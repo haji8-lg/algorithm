@@ -1,0 +1,39 @@
+class Solution:
+    def wordSubsets(self, words1: List[str], words2: List[str]) -> List[str]:
+        result_list = []
+        #empty_list.extend( words2 ) 
+        #join_list = "".join(words2)
+        #print(empty_list)
+        #print(join_list)
+        
+        alpabet_list = [0]*26
+        #print(alpabet_list)
+        for match_word in words2:
+            sub_list = [0]*26
+            for alpabet in match_word:
+                ord_alpa = ord(alpabet)
+                sub_list[ord_alpa - 101] = sub_list[ord_alpa - 101] + 1
+            for i in range(26):
+                alpabet_list[i] = max(alpabet_list[i], sub_list[i])
+        #print(alpabet_list)
+        for test_word in words1:
+            word_bool = True
+            test_list = [0]*26
+            for alpabet in test_word:
+                ord_alpa = ord(alpabet)
+                test_list[ord_alpa - 101] = test_list[ord_alpa - 101] + 1
+            #print(test_word)
+            #print(test_list)
+            #print(alpabet_list)
+            for i in range(26):
+                #print(test_list[i])
+                #print(alpabet_list[i])
+                #print(word_bool)
+                if test_list[i] < alpabet_list[i] :
+                    word_bool = False
+                    break
+            if word_bool:
+                result_list.append(test_word)
+                #print("empty_list", empty_list)
+
+        return result_list
