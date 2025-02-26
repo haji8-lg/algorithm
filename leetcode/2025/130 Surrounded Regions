@@ -1,0 +1,66 @@
+import copy
+
+class Solution:
+
+
+    def solve(self, board: List[List[str]]) -> None:
+        def check_point_wave(x2, y2):
+            move_point = [[0,1], [1,0], [-1,0],[0,-1]]
+            for point in move_point:
+                #print("--",board[1][1])
+                re_r1 = x2 + point[0]
+                re_r2 = y2 + point[1]
+                #print("check", re_r1, re_r2, "ori", x2, y2)
+                if re_r1 < 0 or re_r1 >= len_x:
+                    #print("check1")
+                    continue
+                if re_r2 < 0  or re_r2 >= len_y:
+                    #print("check2")
+                    continue
+                if origin_board[re_r1][re_r2] != 'O':
+                    #print("check3")
+                    continue
+                if board[re_r1][re_r2] == "O":
+                    #print("check4")
+                    continue
+                board[re_r1][re_r2] = "O"
+                #print("check")
+                check_point_wave(re_r1, re_r2)
+
+
+        origin_board = copy.deepcopy(board)
+        len_x = 0
+        len_y = 0
+        len_x = len(board)
+        for r1 in range(len_x):
+            len_y = len(board[r1])
+            for r2 in range(len_y):
+                board[r1][r2] = "X"
+        for r1 in range(len_x):
+            len_y = len(board[r1])
+            for r2 in range(len_y):
+                #print("print", origin_board[1][1])
+                #print("print", board[1][1])
+                #continue
+                check = "F"
+                if origin_board[r1][r2] == "O":
+                    #print("ori",r1,r2)#
+                    if r1 == 0:
+                        board[r1][r2] = "O"
+                        check = "T"
+                    elif r1 == len_x -1:
+                        board[r1][r2] = "O"
+                        check = "T"
+                    elif r2 == 0:
+                        board[r1][r2] = "O"
+                        check = "T"
+                    elif r2 == len_y -1:
+                        board[r1][r2] = "O"
+                        check = "T"
+
+                    ##print("-",board[1][1])
+                    if check == "T":
+                        #print("print", r1,r2)
+                        check_point_wave(r1, r2)
+                        #print("---",board[1][1])
+                        
