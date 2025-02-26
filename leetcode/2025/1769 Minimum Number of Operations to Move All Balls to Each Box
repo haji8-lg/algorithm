@@ -1,0 +1,16 @@
+class Solution:
+    def minOperations(self, boxes: str) -> List[int]:
+        result = []
+        # print(boxes)
+        
+        boxlist = list(boxes)
+        for i in range(len(boxlist)):
+            a1 = 0
+            for k in range(len(boxlist)):
+                if i == k:
+                    continue
+                if int(boxlist[k]) == 1:
+                    a1 += abs(k-i)
+            # print(a1)
+            result.append(a1)
+        return result
