@@ -1,0 +1,21 @@
+class Solution:
+    def stringMatching(self, words: List[str]) -> List[str]:
+        result = {1}
+        for word in words:
+            for word2 in words:
+                mathBool = -1
+                if word == word2:
+                    continue
+                if len(word2) > len(word):
+                    short = word
+                    long  = word2
+                else:
+                    short = word2
+                    long  = word
+
+                mathBool = long.find(short)
+                if mathBool != -1:
+                    result.add(short)
+        result.remove(1)
+        return list(result)
+
