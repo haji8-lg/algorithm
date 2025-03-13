@@ -39,12 +39,19 @@
     digits = len(str(n))
     print(digits)
     ```
-
+## For
+* python list for index
+```
+for i, color in enumerate(colors, start=0):
+```
 ## Map/Object
 
 
 ## List
-
+* list init 초기화
+```
+two_d_list = [[0 for _ in range(10)] for _ in range(5)]
+```
 ## Stack
     ```
     stack = []
@@ -53,6 +60,36 @@
     top = stack[-1]
     is_empty = len(stack) == 0
     ```
+## Tuple 
+* tuple Object
+```
+point = (3, 5)
+points_dict = {point: "This is the point"}
+```
+* tuple return 
+```
+def select_choice():
+    ...
+    return i, card  # or [i, card]
+
+my_i, my_card = select_choice()
+```
+## Typeof
+```
+console.log(typeof x); object
+```
+
+## Exception
+```
+raise Exception("에러에러에러!!")
+```
+## python list param call by reference
+```
+print('before, outer_list =', outer_list)
+try_to_change_list_contents(outer_list)
+print('after, outer_list =', outer_list)
+```
+
 
 ## ETC
 * object.copy()
