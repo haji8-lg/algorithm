@@ -1,0 +1,68 @@
+class Solution:
+    def firstCompleteIndex(self, arr: List[int], mat: List[List[int]]) -> int:
+        x_size = len(mat)
+        y_size = len(mat[0])
+        matchMat = {}
+        paintMat = [[0 for _ in range(y_size)] for _ in range(x_size)]
+
+        def matchXY(mat: List[List[int]], matchMat:object):
+            for i, colArr in enumerate(mat):
+                for j, rowArr in enumerate(colArr):
+                    point = (i, j)
+                    matchMat[mat[i][j]] = point
+            
+
+        def paintSquare(mat: List[List[int]], paintMat: List[List[int]], matchMat:object, selArr:int):
+            x,y = matchMat[selArr]
+            paintMat[x][y] = 1
+            return x,y
+            # for i, colArr in enumerate(mat):
+            #     for j, rowArr in enumerate(colArr):
+            #        if rowArr == selArr:
+            #            paintMat[i][j] = 1
+            #            return i, j
+            raise Exception("No Matching Index In Matrix")
+
+        def checkHasOneLine(mat: List[List[int]], paintMat: List[List[int]], sel_i:int, sel_j):
+            
+            # row 체크
+            col_x = sel_i
+            col_result = 1
+            for y in range(y_size):
+                if paintMat[col_x][y] != 1:
+                    col_result = 0
+                    break;
+            if col_result == 1:
+                return 1
+            # col 체크
+            row_y = sel_j
+            row_result = 1
+            for x in range(x_size):
+                if paintMat[x][row_y] != 1:
+                    row_result = 0
+                    break;
+            if row_result == 1:
+                return 1
+            return 0
+
+
+        #  print('after, x_size =', x_size, ', y_size =', y_size)
+        matchXY(mat, matchMat)
+
+        for i, selArr in enumerate(arr, start=0):
+            # arr에 할당된 index를 칠한다.
+            
+            #  print('before, paintMat =', paintMat)
+            sel_i, sel_j = paintSquare(mat, paintMat, matchMat, selArr)
+            #  print('after, paintMat =', paintMat)
+            #  print('after, sel_i =', sel_i, ', sel_j =', sel_j)
+
+            # First Completely Painted Row or Column
+            result = 0
+            if i >= min(x_size -1, y_size -1):
+                result = checkHasOneLine(mat, paintMat, sel_i, sel_j)
+
+            if result == 1:
+                return i
+
+
