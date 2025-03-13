@@ -44,8 +44,8 @@
 ```
 for i, color in enumerate(colors, start=0):
 ```
-## Map/Object
-
+## Map/Object/Dict 
+* Dictionary : get(), keys(), values(), items() 
 
 ## List
 * list init 초기화
