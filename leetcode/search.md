@@ -52,6 +52,8 @@ for i, color in enumerate(colors, start=0):
 ```
 two_d_list = [[0 for _ in range(10)] for _ in range(5)]
 ```
+* found = list.index('melon')
+* list.remove("JavaScript")
 ## Stack
     ```
     stack = []
