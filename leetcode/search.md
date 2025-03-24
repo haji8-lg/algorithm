@@ -1,8 +1,9 @@
 # Python
 
 ## String 
-* "str".replace('s','S')
+* "str".replace('s','S')     //  original_string.replace(substring_to_remove, "", 1) # once
 * string to list = list(str)
+* list to string = str(list)
 * Contains
   ```
   if "blah" not in somestring: 
