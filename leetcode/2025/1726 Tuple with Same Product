@@ -1,0 +1,27 @@
+class Solution:
+    def tupleSameProduct(self, nums: List[int]) -> int:
+        
+        matchMap = {}
+        # a * b  map 생성
+        for first_index in range(len(nums)):
+            num1=nums[first_index]
+            for second_index in range(first_index + 1, len(nums)):
+                num2=nums[second_index]
+        # for i, num1 in enumerate(nums):
+        #     for j, num2 in enumerate(nums):
+                if num1 == num2 or second_index < first_index:
+                    continue
+                resultMulti = num1 * num2
+                #matchList = matchMap[resultMulti]
+                #matchlist.append((num1, num2))
+                if resultMulti not in matchMap:
+                    matchMap[resultMulti] = 0
+                matchMap[resultMulti]=matchMap[resultMulti] + 1
+        result = 0
+        for key, value in matchMap.items():
+        # for match, value in matchMap:
+        #     print(match)
+            if value >= 2:
+                match_tuple_len = value
+                result = result +  match_tuple_len * (match_tuple_len - 1) /2
+        return int(result * 8)
