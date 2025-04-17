@@ -45,6 +45,12 @@
 ```
 for i, color in enumerate(colors, start=0):
 ```
+* reversed
+```
+for i in reversed(range(1,10)
+for i in range(9,0,-1)
+for i list(range(1,10))[::-1]
+```
 ## Map/Object/Dict 
 * Dictionary : get(), keys(), values(), items() 
 
@@ -56,7 +62,18 @@ two_d_list = [[0 for _ in range(10)] for _ in range(5)]
 *  found = list.index('melon')
 *  list.remove("JavaScript")
 *  list.sort()
+*  sum(list)
 *  list_b = sorted(list_a)
+*  list add on position
+```
+l1 = [1,2,3]
+l1.insert(1,100)
+l1 => [1, 100, 2, 3 ]
+```
+* list delete on position
+```
+del list[0]
+```
 ## Stack
     ```
     stack = []
