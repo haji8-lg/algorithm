@@ -18,3 +18,8 @@
 * 130 Surrounded Regions
 * 916 Word Subsets
 * 2116 Check if a Parentheses String Can Be Valid
+* 1726. Tuple with Same Product
+* 2349. Design a Number Container System
+* 1910. Remove All Occurrences of a Substring
+* 110. Balanced Binary Tree
+* 119. Pascal's Triangle II
