@@ -1,0 +1,6 @@
+class Solution:
+    def removeOccurrences(self, s: str, part: str) -> str:
+        while part in s:
+            new_set = s.replace(part, '', 1)
+            s = str(new_set)
+        return str(s)
