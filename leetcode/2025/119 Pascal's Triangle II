@@ -1,0 +1,32 @@
+class Solution:
+    def getRow(self, rowIndex: int) -> List[int]:
+        result = [1,2,1]
+        if rowIndex == 0:
+            return [1]
+        elif rowIndex == 1:
+            return [1,1]# 
+
+        rowIndex = rowIndex -1
+        for n in range(2, rowIndex+1):
+            pre_result = copy.deepcopy(result) 
+            print("1r ", result)
+            for k in reversed(range(1,n)):
+                print("result[k] ", result[k], "k:", k)
+                del result[k]
+            print("2r ", result)
+                
+            for k in range(0, n):
+                print("pre_result", pre_result)
+                result.insert(1,   pre_result[k] + pre_result[k+1]  )
+                #result.insert(n-1,   pre_result[n-2] + pre_result[n-1]  )
+                print("1  ",1, "   : ",pre_result[0] + pre_result[1])
+                #print("2  ",n-1, "   : " ,pre_result[n-2] + pre_result[n-1])
+                    
+                print(result, )
+            #sum(getRow(n))
+        return result
+
+
+# l = ['a', 'b', 'c']
+
+# l.insert(1, 100)
