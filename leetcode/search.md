@@ -57,6 +57,7 @@ for i list(range(1,10))[::-1]
 ## List
 * list init 초기화
 ```
+a = [38, 21, 53, 62, 19]
 two_d_list = [[0 for _ in range(10)] for _ in range(5)]
 ```
 *  found = list.index('melon')
